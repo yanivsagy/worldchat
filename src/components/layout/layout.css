@@ -1,0 +1,39 @@
+.navbar-title {
+    font-weight: bold;
+    font-family: 'Sintony', sans-serif;
+    color: #1E2852;
+    margin-bottom: 0;
+}
+
+.navbar-header {
+    font-family: 'Sintony', sans-serif;
+    color: #1E2852;
+    margin-bottom: 0;
+}
+
+.navbar-header:hover {
+    color: black;
+}
+
+.navbar-link {
+    text-decoration: none;
+}
+
+.navbar-position {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+}
+
+.navbar-dropdown {
+    color: #1E2852 !important;
+}
+
+.navbar-dropdown:hover {
+    color: black !important;
+}
+
+.navbar-dropdown-item:hover {
+    color: black  !important;
+    background-color: white;
+}

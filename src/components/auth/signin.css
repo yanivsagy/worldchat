@@ -1,0 +1,85 @@
+.signin-container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    min-height: 700px;
+}
+
+.signin {
+    background-color: #1E2852;
+    width: 50%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signin-title {
+    color: white;
+    font-family: 'Sintony', sans-serif;
+    font-size: 2rem;
+}
+
+.signin-result {
+    width: 70%;
+}
+
+.signin-fields {
+    width: 70%;
+    display: inline-block;
+}
+
+.signin-fields-text {
+    color: white;
+    font-family: 'Sintony', sans-serif;
+}
+
+.signin-hr {
+    color: white;
+    height: 4px;
+}
+
+.signin-btn {
+    background-color: white;
+    color: #1E2852;
+    font-family: 'Sintony', sans-serif;
+    width: 100%;
+}
+
+.signin-btn:hover {
+    background-color: black;
+    color: white;
+}
+
+.signin-dummy {
+    visibility: hidden;
+}
+
+.min-signin-title {
+    display: none;
+}
+
+@media screen and (max-width: 750px) {
+    .hero {
+        display: none;
+    }
+
+    .signin {
+        background-color: #1E2852;
+        width: 100%;
+    }
+
+    .min-signin-title {
+        position: absolute;
+        display: block;
+        background-color: white;
+        color: #1E2852;
+        font-family: 'Sintony', sans-serif;
+        font-size: 25px;
+        width: 100%;
+        height: 5%;
+        min-height: 60px;
+        padding: 10px;
+    }
+}

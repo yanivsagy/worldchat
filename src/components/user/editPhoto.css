@@ -1,0 +1,95 @@
+.edit-photo-container {
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo-text {
+    color: white;
+    font-family: 'Sintony', sans-serif;
+    font-size: 2rem;
+}
+
+.photo-label {
+    font-family: 'Sintony', sans-serif;
+    width: 100%;
+}
+
+.photo-fields {
+    width: 80%;
+    display: inline-block;
+    background-color: white;
+}
+
+.photo-result {
+    width: 70%;
+}
+
+.user-photo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-photo {
+    height: auto;
+    width: 100%;
+    max-width: 300px;
+    max-height: 450px;
+}
+
+.photo-btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.photo-upload-btn, .photo-remove-btn, .photo-confirm-btn {
+    display: inline-block;
+    background-color: #1E2852;
+    color: white;
+    font-family: 'Sintony', sans-serif;
+    width: 50%;
+}
+
+.photo-upload-btn {
+    margin-right: 3px;
+}
+
+.photo-remove-btn {
+    margin-left: 3px;
+}
+
+.photo-confirm-btn {
+    width: 100%;
+}
+
+.photo-upload-btn:hover, .photo-remove-btn:hover, .photo-confirm-btn:hover {
+    background-color: black;
+    color: white;
+}
+
+@media screen and (max-width: 750px) {
+    .photo-btn-container {
+        flex-direction: column;
+    }
+
+    .photo-upload-btn, .photo-remove-btn {
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+
+    .photo-upload-btn {
+        margin-bottom: 3px;
+    }
+
+    .photo-remove-btn {
+        margin-top: 3px;
+    }
+}

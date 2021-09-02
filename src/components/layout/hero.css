@@ -1,0 +1,31 @@
+.hero {
+    background-color: white;
+    width: 50%;
+}
+
+.hero-text {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-text:hover {
+    cursor: pointer;
+}
+
+.hero-pretext {
+    font-weight: bold;
+    font-family: 'Sintony', sans-serif;
+    color: #1E2852;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.hero-title {
+    font-weight: bold;
+    font-family: 'Sintony', sans-serif;
+    color: #1E2852;
+    font-size: 4rem;
+    text-align: center;
+}

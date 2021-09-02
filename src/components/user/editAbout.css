@@ -1,0 +1,48 @@
+.edit-about-container {
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-text {
+    color: white;
+    font-family: 'Sintony', sans-serif;
+    font-size: 2rem;
+}
+
+.about-label {
+    font-family: 'Sintony', sans-serif;
+}
+
+.about-fields {
+    width: 80%;
+    display: inline-block;
+    background-color: white;
+}
+
+.about-result {
+    width: 70%;
+}
+
+textarea {
+    resize: vertical;
+    max-height: 200px;
+}
+
+.about-select {
+    display: block;
+}
+
+.about-btn {
+    background-color: #1E2852;
+    color: white;
+    font-family: 'Sintony', sans-serif;
+    width: 100%;
+}
+
+.about-btn:hover {
+    background-color: black;
+    color: white;
+}

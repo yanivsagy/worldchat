@@ -1,0 +1,57 @@
+.auth-menu-container {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
+
+.auth-menu-link {
+    text-decoration: none;
+}
+
+.signup {
+    width: 50%;
+}
+
+.signin {
+    width: 50%;
+}
+
+.signup-text {
+    color: white;
+    font-family: 'Sintony', sans-serif;
+    font-size: 2rem;
+}
+
+.signin-text {
+    color: white;
+    font-family: 'Sintony', sans-serif;
+    font-size: 2rem;
+}
+
+.signup-text:hover, .signin-text:hover {
+    cursor: pointer;
+}
+
+.signup-text-active {
+    background-color: white;
+    color: #1E2852;
+    border-radius: 5px;
+    font-family: 'Sintony', sans-serif;
+    font-size: 2rem;
+    padding: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.signin-text-active {
+    background-color: white;
+    color: #1E2852;
+    border-radius: 5px;
+    font-family: 'Sintony', sans-serif;
+    font-size: 2rem;
+    padding: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+}

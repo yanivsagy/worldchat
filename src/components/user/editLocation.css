@@ -1,0 +1,39 @@
+.edit-location-container {
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.location-text {
+    color: white;
+    font-family: 'Sintony', sans-serif;
+    font-size: 2rem;
+}
+
+.location-label {
+    font-family: 'Sintony', sans-serif;
+}
+
+.location-fields {
+    width: 80%;
+    display: inline-block;
+    background-color: white;
+}
+
+.location-result {
+    width: 70%;
+}
+
+.location-btn {
+    background-color: #1E2852;
+    color: white;
+    font-family: 'Sintony', sans-serif;
+    width: 100%;
+}
+
+.location-btn:hover {
+    background-color: black;
+    color: white;
+}

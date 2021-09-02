@@ -1,0 +1,29 @@
+.profile-menu-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-menu-list {
+    list-style-type: none;
+    width: 50%;
+    padding: 15px;
+    background-color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Sintony', sans-serif;
+    color: #1E2852;
+    text-align: center;
+}
+
+.menu-bullet:hover {
+    color: black;
+}
+
+.profile-menu-link {
+    text-decoration: none;
+    color: #1E2852;
+}
