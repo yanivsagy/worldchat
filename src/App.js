@@ -6,7 +6,7 @@ import Navbar from './components/layout/Navbar';
 import Signup from './components/auth/Signup';
 import Signin from './components/auth/Signin';
 import AccountActivation from './components/auth/AccountActivation';
-import GoogleMaps from './components/map/GoogleMaps';
+import MapView from './components/map/MapView';
 import EditProfile from './components/user/EditProfile';
 import { isAuth } from './actions/auth';
 
@@ -21,7 +21,7 @@ function App() {
           <Route path="/signup" component={ () => <Signup currentAuthPage={ currentAuthPage } setCurrentAuthPage={ setCurrentAuthPage } setLoggedIn={ setLoggedIn } /> } />
           <Route path="/signin" component={ () => <Signin currentAuthPage={ currentAuthPage } setCurrentAuthPage={ setCurrentAuthPage } setLoggedIn={ setLoggedIn } /> } />
           <Route path="/auth/account/activate/:token" component={ AccountActivation } />
-          <Route path="/worldview" component={ () => <GoogleMaps setLoggedIn={ setLoggedIn } /> } />
+          <Route path="/worldview" component={ () => <MapView setLoggedIn={ setLoggedIn } /> } />
           <Route path="/profile/edit" component={ () => <EditProfile setLoggedIn={ setLoggedIn } /> } />
         </Switch>
     </div>

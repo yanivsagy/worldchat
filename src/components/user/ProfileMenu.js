@@ -5,9 +5,9 @@ import "./profileMenu.css";
 const ProfileMenu = () => {
     return (
         <div className="profile-menu-container">
-            <ul className="profile-menu-list border border-light rounded">
+            <ul className="profile-menu-list border border-dark rounded">
                 <Link className="profile-menu-link" to={ `/profile/edit/about` }>
-                    <li className="menu-bullet">Edit About You</li>
+                    <li className="menu-bullet">Edit Profile</li>
                 </Link>
                 <hr/>
                 <Link className="profile-menu-link" to={ `/profile/edit/location` }>
@@ -15,7 +15,7 @@ const ProfileMenu = () => {
                 </Link>
                 <hr/>
                 <Link className="profile-menu-link" to={ `/profile/edit/photo` }>
-                    <li className="menu-bullet">Edit Profile Photo</li>
+                    <li className="menu-bullet">Edit Photo</li>
                 </Link>
             </ul>
         </div>

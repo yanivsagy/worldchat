@@ -11,19 +11,19 @@
     list-style-type: none;
     width: 50%;
     padding: 15px;
-    background-color: white;
+    background-color: #1E2852;
     cursor: pointer;
     font-weight: bold;
     font-family: 'Sintony', sans-serif;
-    color: #1E2852;
+    color: white;
     text-align: center;
 }
 
 .menu-bullet:hover {
-    color: black;
+    color: #F0F0F0;
 }
 
 .profile-menu-link {
     text-decoration: none;
-    color: #1E2852;
+    color: white;
 }

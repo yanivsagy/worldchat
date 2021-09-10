@@ -39,7 +39,10 @@ const EditAbout = ({ setLoggedIn }) => {
                 if (data.error) {
                     setValues({ ...values, error: data.error });
                 } else {
-                    setValues({ ...values, username: data.username, language: data.language, about: data.about });
+                    userData.set('username', data.username);
+                    userData.set('language', data.language);
+                    userData.set('about', data.about);
+                    setValues({ ...values, username: data.username, language: data.language, about: data.about, userData: userData });
                 }
             })
             .catch(err => console.log(err));
@@ -67,13 +70,25 @@ const EditAbout = ({ setLoggedIn }) => {
                             about: data.about,
                             error: false,
                             loading: false,
-                            message: 'About You successfully updated!'
+                            message: 'Profile successfully updated!'
                         });
                     });
                 }
             })
             .catch(err => console.log(err));
     };
+
+    const showLoading = () => {
+        return loading ? <div className="about-result alert alert-info">Loading...</div> : '';
+    }
+
+    const showError = () => {
+        return error ? <div className="about-result alert alert-danger">{ error }</div> : '';
+    }
+
+    const showMessage = () => {
+        return message ? <div className="about-result alert alert-success">{ message }</div> : '';
+    }
 
     const editAboutForm = () => {
         return (
@@ -114,7 +129,7 @@ const EditAbout = ({ setLoggedIn }) => {
                         className="about-btn btn"
                         onClick={ handleSubmit }
                     >
-                        Edit About You
+                        Save
                     </button>
                 </div>
             </div>
@@ -123,7 +138,10 @@ const EditAbout = ({ setLoggedIn }) => {
 
     return (
         <div className="edit-about-container">
-            <p className="about-text">About You</p>
+            <p className="about-text">My Profile</p>
+            { showLoading() }
+            { showError() }
+            { showMessage() }
             { editAboutForm() }
         </div>
     );

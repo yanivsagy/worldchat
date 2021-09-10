@@ -39,7 +39,7 @@ const Navbar = ({ loggedIn, setLoggedIn }) => {
                                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                             <Link className="navbar-link" to={ `/profile/edit` }>
                                                 <li>
-                                                    <a class="dropdown-item navbar-dropdown-item navbar-header" href="#">Edit Profile</a>
+                                                    <a class="dropdown-item navbar-dropdown-item navbar-header" href="#">About Me</a>
                                                 </li>
                                             </Link>
                                             <li><hr class="dropdown-divider"/></li>

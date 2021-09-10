@@ -1,7 +1,6 @@
-import { useState, useEffect, useCallback } from 'react';
-import { isAuth } from '../../actions/auth';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { useHistory } from 'react-router';
 import { populateMap } from '../../actions/map';
-import { useHistory } from 'react-router-dom';
 import {
     GoogleMap,
     useLoadScript,
@@ -16,7 +15,7 @@ const mapContainerStyle = {
     height: '100vh'
 };
 const center = {
-    lat: 37.773972,
+    lat: 37.773972, //change from SF to center of the Earth
     lng: -122.431297,
 };
 const options = {
@@ -33,17 +32,10 @@ const options = {
     }
 }
 
-const GoogleMaps = ({ setLoggedIn }) => {
+const GoogleMaps = () => {
     let history = useHistory();
 
     useEffect(() => {
-        if (!isAuth()) {
-            setLoggedIn(false);
-            history.push('/signin');
-        } else {
-            setLoggedIn(true);
-        }
-
         populateMap()
             .then(data => setMarkers(data))
             .catch(err => console.log(err));
@@ -54,6 +46,21 @@ const GoogleMaps = ({ setLoggedIn }) => {
         libraries
     });
     const [markers, setMarkers] = useState([]);
+
+    const mapRef = useRef();
+    const onMapLoad = useCallback(map => {
+        mapRef.current = map;
+    }, []);
+
+    const panTo = useCallback(({ lat, lng }) => {
+        mapRef.current.panTo({ lat, lng });
+        mapRef.current.setZoom(15);
+    }, []);
+
+    const viewProfiles = ({ lat, lng }) => () => {
+        panTo({ lat: lat, lng: lng + 0.015 });
+        history.push(`/worldview/profile/list/${ 'lat=' + lat.toString() + '&' + 'lng=' + lng.toString() }`);
+    };
 
     if (loadError) {
         return "Error loading maps";
@@ -69,22 +76,24 @@ const GoogleMaps = ({ setLoggedIn }) => {
                 zoom={ 8 }
                 center={ center }
                 options={ options }
+                onLoad={ onMapLoad }
             >
                 { markers.map(marker => {
+                    const lat = !marker.location.latitude ? marker.location.defaultLat : marker.location.latitude;
+                    const lng = !marker.location.longitude ? marker.location.defaultLong : marker.location.longitude;
                     return (
                         <Marker
                             key={ marker.location.defaultLat.toString() + marker.location.defaultLong.toString() }
-                            position={ {
-                                lat: !marker.location.latitude ? marker.location.defaultLat : marker.location.latitude,
-                                lng: !marker.location.longitude ? marker.location.defaultLong : marker.location.longitude
-                            } }
+                            position={ { lat, lng } }
                             icon={ {
                                 url: '/person.png',
-                                scaledSize: new window.google.maps.Size(30, 30),
+                                scaledSize: new window.google.maps.Size(35, 35),
                                 origin: new window.google.maps.Point(0, 0),
                                 anchor: new window.google.maps.Point(15, 15)
                             } }
+                            onClick={ viewProfiles({ lat, lng }) }
                         />
+
                     );
                 }) }
             </GoogleMap>

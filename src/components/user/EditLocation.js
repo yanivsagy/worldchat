@@ -7,6 +7,7 @@ const EditLocation = ({ setLoggedIn }) => {
     const [values, setValues] = useState({
         street: '',
         city: '',
+        state: '',
         country:  '',
         zip: '',
         userData: new FormData(),
@@ -26,6 +27,7 @@ const EditLocation = ({ setLoggedIn }) => {
     const {
         street,
         city,
+        state,
         country,
         zip,
         userData,
@@ -41,12 +43,19 @@ const EditLocation = ({ setLoggedIn }) => {
                 if (data.error) {
                     setValues({ ...values, error: data.error });
                 } else {
+                    userData.set('street', data.street);
+                    userData.set('city', data.city ? data.city : data.defaultCity);
+                    userData.set('state', data.state);
+                    userData.set('country', data.country ? data.country : data.defaultCountry);
+                    userData.set('zip', data.zip ? data.zip : data.defaultZip);
                     setValues({
                         ...values,
                         street: data.street,
-                        city: data.city,
-                        country: data.country,
-                        zip: data.zip
+                        city: data.city ? data.city : data.defaultCity,
+                        state: data.state ? data.state : data.defaultState,
+                        country: data.country ? data.country : data.defaultCountry,
+                        zip: data.zip ? data.zip : data.defaultZip,
+                        userData: userData
                     });
                 }
             })
@@ -70,9 +79,10 @@ const EditLocation = ({ setLoggedIn }) => {
                     setValues({
                         ...values,
                         street: data.street,
-                        city: data.city,
-                        country: data.country,
-                        zip: data.zip,
+                        city: data.city ? data.city : data.defaultCity,
+                        state: data.state,
+                        country: data.country ? data.country : data.defaultCountry,
+                        zip: data.zip ? data.zip : data.defaultZip,
                         error: false,
                         loading: false,
                         message: 'Location successfully updated!'
@@ -81,6 +91,18 @@ const EditLocation = ({ setLoggedIn }) => {
             })
             .catch(err => console.log(err));
     };
+
+    const showLoading = () => {
+        return loading ? <div className="location-result alert alert-info">Loading...</div> : '';
+    }
+
+    const showError = () => {
+        return error ? <div className="location-result alert alert-danger">{ error }</div> : '';
+    }
+
+    const showMessage = () => {
+        return message ? <div className="location-result alert alert-success">{ message }</div> : '';
+    }
 
     const editLocationForm = () => {
         return (
@@ -101,6 +123,15 @@ const EditLocation = ({ setLoggedIn }) => {
                             className="form-control"
                             value={ city }
                             onChange={ handleChange('city') }
+                        />
+                </div>
+                <div className="mb-3">
+                    <label className="form-label location-label">State</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            value={ state }
+                            onChange={ handleChange('state') }
                         />
                 </div>
                 <div className="mb-3">
@@ -128,7 +159,7 @@ const EditLocation = ({ setLoggedIn }) => {
                         className="location-btn btn"
                         onClick={ handleSubmit }
                     >
-                        Edit Location
+                        Save
                     </button>
                 </div>
             </div>
@@ -137,7 +168,10 @@ const EditLocation = ({ setLoggedIn }) => {
 
     return (
         <div className="edit-location-container">
-            <p className="location-text">Location</p>
+            <p className="location-text">My Location</p>
+            { showLoading() }
+            { showError() }
+            { showMessage() }
             { editLocationForm() }
         </div>
     );

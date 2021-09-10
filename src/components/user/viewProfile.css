@@ -1,0 +1,75 @@
+.view-profile-container {
+    width: 50%;
+    max-width: 700px;
+    height: calc(85vh - 65px);
+    position: absolute;
+    right: 20px;
+    top: 100px;
+    background-color: white;
+    border-radius: 5px;
+    overflow-y: auto;
+    border: 3px solid #1E2852;
+}
+
+.profile-back {
+    color: #1E2852;
+    cursor: pointer;
+}
+
+.selected-profile {
+    width: 95%;
+    margin: auto;
+}
+
+h1 {
+    color: #1E2852;
+    font-family: 'Sintony', sans-serif;
+    text-align: center;
+}
+
+.profile-photo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    width: 200px;
+    min-width: 40px;
+    margin: auto;
+}
+
+h3 {
+    color: #1E2852;
+    font-family: 'Sintony', sans-serif;
+    margin-left: 10px;
+}
+
+h4 {
+    color: #1E2852;
+    font-family: 'Sintony', sans-serif;
+    margin-left: 10px;
+}
+
+.profile-hr {
+    width: 30%;
+    margin-left: 10px;
+}
+
+.message-hr {
+    color: #1E2852;
+}
+
+.profile-message-container {
+    height: 80px;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    background-color: white;
+}
+
+.profile-message {
+    color: #1E2852;
+    height: 30px;
+    width: 100%;
+    cursor: pointer;
+}

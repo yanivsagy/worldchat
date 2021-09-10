@@ -1,5 +1,6 @@
 .edit-photo-container {
     height: 95%;
+    min-height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,7 +25,7 @@
 }
 
 .photo-result {
-    width: 70%;
+    width: 80%;
 }
 
 .user-photo-container {
@@ -32,6 +33,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: -10px !important;
+    height: 400px;
 }
 
 .user-photo {
@@ -47,6 +50,11 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+.recommended-text {
+    color: #1E2852;
+    font-family: 'Sintony', sans-serif;
 }
 
 .photo-upload-btn, .photo-remove-btn, .photo-confirm-btn {
@@ -75,8 +83,16 @@
 }
 
 @media screen and (max-width: 750px) {
+    .user-photo-container {
+        height: 150px;
+    }
+
     .photo-btn-container {
         flex-direction: column;
+    }
+
+    .recommended-text {
+        font-size: 13px;
     }
 
     .photo-upload-btn, .photo-remove-btn {

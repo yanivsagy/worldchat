@@ -1,0 +1,64 @@
+.profile-list-container {
+    width: 50%;
+    max-width: 700px;
+    height: calc(85vh - 65px);
+    position: absolute;
+    right: 20px;
+    top: 100px;
+    background-color: white;
+    border-radius: 5px;
+    overflow-y: auto;
+    border: 3px solid #1E2852;
+}
+
+.list-intro {
+    width: 80%;
+    margin: auto;
+    font-family: 'Sintony', sans-serif;
+    color: #1E2852;
+    font-size: 1.5rem;
+}
+
+.list-link {
+    text-decoration: none;
+}
+
+.profile-preview {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    font-family: 'Sintony', sans-serif;
+    font-size: 2rem;
+    color: white;
+    background-color: #1E2852;
+    border-radius: 5px;
+    cursor: pointer;
+    align-items: center;
+}
+
+.profile-leave {
+    color: #1E2852;
+    cursor: pointer;
+}
+
+.list-photo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    min-width: 40px;
+    margin-right: 20px;
+}
+
+.profile-list-name {
+    width: 80%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
