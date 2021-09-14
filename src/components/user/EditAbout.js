@@ -5,6 +5,7 @@ import './editAbout.css';
 
 const EditAbout = ({ setLoggedIn }) => {
     const [values, setValues] = useState({
+        name: '',
         username: '',
         language: '',
         about: '',
@@ -23,6 +24,7 @@ const EditAbout = ({ setLoggedIn }) => {
     }, []);
 
     const {
+        name,
         username,
         language,
         about,
@@ -39,10 +41,11 @@ const EditAbout = ({ setLoggedIn }) => {
                 if (data.error) {
                     setValues({ ...values, error: data.error });
                 } else {
+                    userData.set('name', data.name);
                     userData.set('username', data.username);
                     userData.set('language', data.language);
                     userData.set('about', data.about);
-                    setValues({ ...values, username: data.username, language: data.language, about: data.about, userData: userData });
+                    setValues({ ...values, name: data.name, username: data.username, language: data.language, about: data.about, userData: userData });
                 }
             })
             .catch(err => console.log(err));
@@ -65,6 +68,7 @@ const EditAbout = ({ setLoggedIn }) => {
                     updateUser(data, () => {
                         setValues({
                             ...values,
+                            name: data.name,
                             username: data.username,
                             language: data.language,
                             about: data.about,
@@ -93,6 +97,16 @@ const EditAbout = ({ setLoggedIn }) => {
     const editAboutForm = () => {
         return (
             <div className="about-fields p-5 border border-light rounded">
+                <div className="mb-3">
+                    <label className="form-label about-label">Name</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            value={ name }
+                            onChange={ handleChange('name') }
+                            required
+                        />
+                </div>
                 <div className="mb-3">
                     <label className="form-label about-label">Username</label>
                         <input

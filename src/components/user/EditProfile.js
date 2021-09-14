@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { isAuth } from '../../actions/auth';
-import ProfileMenu from './ProfileMenu';
+import ProfileMenu from '../layout/ProfileMenu';
 import EditAbout from './EditAbout';
 import EditLocation from './EditLocation';
 import EditPhoto from './EditPhoto';

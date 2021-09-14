@@ -78,12 +78,12 @@ const GoogleMaps = () => {
                 options={ options }
                 onLoad={ onMapLoad }
             >
-                { markers.map(marker => {
+                { markers.map((marker, i) => {
                     const lat = !marker.location.latitude ? marker.location.defaultLat : marker.location.latitude;
                     const lng = !marker.location.longitude ? marker.location.defaultLong : marker.location.longitude;
                     return (
                         <Marker
-                            key={ marker.location.defaultLat.toString() + marker.location.defaultLong.toString() }
+                            key={ marker.location.defaultLat.toString() + marker.location.defaultLong.toString() + i.toString() }
                             position={ { lat, lng } }
                             icon={ {
                                 url: '/person.png',

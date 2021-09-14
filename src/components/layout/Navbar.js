@@ -32,22 +32,22 @@ const Navbar = ({ loggedIn, setLoggedIn }) => {
                             }
                             {
                                 loggedIn && (
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link navbar-header navbar-dropdown dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <li className="nav-item dropdown">
+                                        <a className="nav-link navbar-header navbar-dropdown dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Options
                                         </a>
-                                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                             <Link className="navbar-link" to={ `/profile/edit` }>
                                                 <li>
-                                                    <a class="dropdown-item navbar-dropdown-item navbar-header" href="#">About Me</a>
+                                                    <a className="dropdown-item navbar-dropdown-item navbar-header" href="#">About Me</a>
                                                 </li>
                                             </Link>
-                                            <li><hr class="dropdown-divider"/></li>
+                                            <li><hr className="dropdown-divider"/></li>
                                             <li onClick={ () =>  signout(() => {
                                                 setLoggedIn(false);
                                                 history.push('/signin');
                                             }) }>
-                                                <a class="dropdown-item navbar-dropdown-item navbar-header" href="#">Sign Out</a>
+                                                <a className="dropdown-item navbar-dropdown-item navbar-header" href="#">Sign Out</a>
                                             </li>
                                         </ul>
                                     </li>

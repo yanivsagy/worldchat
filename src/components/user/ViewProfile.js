@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 import { isAuth } from "../../actions/auth";
 import { editLocation, getProfile } from "../../actions/user";
 import { ArrowLeft, MessageSquare } from 'react-feather';
@@ -9,6 +10,7 @@ const ViewProfile = ({ match, setLoggedIn }) => {
     let history = useHistory();
 
     const [user, setUser] = useState({});
+    const [room, setRoom] = useState('');
 
     useEffect(() => {
         if (!isAuth()) {
@@ -25,6 +27,14 @@ const ViewProfile = ({ match, setLoggedIn }) => {
                     console.log(data.error);
                 } else {
                     setUser(data);
+
+                    let res = data.username.localeCompare(isAuth().username);
+
+                    if (res == -1) {
+                        setRoom(data.username + ' ' + isAuth().username);
+                    } else {
+                        setRoom(isAuth().username + ' ' + data.username);
+                    }
                 }
             })
             .catch(err => console.log(err));
@@ -35,18 +45,12 @@ const ViewProfile = ({ match, setLoggedIn }) => {
 
         if (user.location['city']) {
             locationPoints.push(user.location['city']);
-        } else {
-            locationPoints.push(user.location['defaultCity']);
         }
-
         if (user.location['state']) {
             locationPoints.push(user.location['state']);
         }
-
         if (user.location['country']) {
             locationPoints.push(user.location['country']);
-        } else {
-            locationPoints.push(user.location['defaultCountry']);
         }
 
         return locationPoints.join(', ');
@@ -54,10 +58,12 @@ const ViewProfile = ({ match, setLoggedIn }) => {
 
     return (
         <div className="view-profile-container">
-            <ArrowLeft
-                className="profile-back"
-                onClick={ () => history.push(`/worldview/profile/list/lat=${ user.location.latitude }&lng=${ user.location.longitude }`) }
-            />
+            <div className="profile-back-container">
+                <ArrowLeft
+                    className="profile-back"
+                    onClick={ () => history.push(`/worldview/profile/list/lat=${ user.location.latitude }&lng=${ user.location.longitude }`) }
+                />
+            </div>
             <div className="selected-profile">
                 { isAuth().name === user.name ? (
                     <h1>{ user.name } (YOU)</h1>
@@ -88,10 +94,12 @@ const ViewProfile = ({ match, setLoggedIn }) => {
                 <hr className="profile-hr"/>
                 <h4>{ user.about }</h4>
             </div>
-            <div className="profile-message-container">
-                <hr className="message-hr"/>
-                <MessageSquare className="profile-message" />
-            </div>
+            <Link to={ `/chat?name=${ encodeURI(isAuth().name) }&room=${ encodeURI(room) }` }>
+                <div className="profile-message-container">
+                    <div className="message-text">Tap to</div>
+                    <MessageSquare className="profile-message" />
+                </div>
+            </Link>
         </div>
     );
 };

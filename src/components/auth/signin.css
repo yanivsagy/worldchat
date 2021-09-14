@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     height: 100%;
-    min-height: 700px;
+    min-height: 800px;
 }
 
 .signin {
@@ -31,6 +31,11 @@
 }
 
 .signin-fields-text {
+    color: white;
+    font-family: 'Sintony', sans-serif;
+}
+
+.warning-text {
     color: white;
     font-family: 'Sintony', sans-serif;
 }

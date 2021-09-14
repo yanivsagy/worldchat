@@ -96,6 +96,7 @@ const Signup = ({ setLoggedIn, currentAuthPage, setCurrentAuthPage }) => {
                         required
                     />
                 </div>
+                <p className="warning-text">*WorldChat uses your IP address to determine a default location</p>
                 <hr className="signup-hr"/>
                 <div>
                     <button

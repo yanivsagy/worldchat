@@ -44,23 +44,25 @@ const EditLocation = ({ setLoggedIn }) => {
                     setValues({ ...values, error: data.error });
                 } else {
                     userData.set('street', data.street);
-                    userData.set('city', data.city ? data.city : data.defaultCity);
+                    userData.set('city', data.city);
                     userData.set('state', data.state);
-                    userData.set('country', data.country ? data.country : data.defaultCountry);
-                    userData.set('zip', data.zip ? data.zip : data.defaultZip);
+                    userData.set('country', data.country);
+                    userData.set('zip', data.zip);
                     setValues({
                         ...values,
                         street: data.street,
-                        city: data.city ? data.city : data.defaultCity,
-                        state: data.state ? data.state : data.defaultState,
-                        country: data.country ? data.country : data.defaultCountry,
-                        zip: data.zip ? data.zip : data.defaultZip,
+                        city: data.city,
+                        state: data.state,
+                        country: data.country,
+                        zip: data.zip,
                         userData: userData
                     });
                 }
             })
             .catch(err => console.log(err));
     };
+
+
 
     const handleChange = (type) => (e) => {
         userData.set(type, e.target.value);
@@ -74,15 +76,15 @@ const EditLocation = ({ setLoggedIn }) => {
         editLocation(userData, token)
             .then(data => {
                 if (data.error) {
-                    setValues({ ...values, error: false, loading: false, message: '' });
+                    setValues({ ...values, error: data.error, loading: false, message: '' });
                 } else {
                     setValues({
                         ...values,
                         street: data.street,
-                        city: data.city ? data.city : data.defaultCity,
+                        city: data.city,
                         state: data.state,
-                        country: data.country ? data.country : data.defaultCountry,
-                        zip: data.zip ? data.zip : data.defaultZip,
+                        country: data.country,
+                        zip: data.zip,
                         error: false,
                         loading: false,
                         message: 'Location successfully updated!'

@@ -34,31 +34,35 @@ const ProfileList = ({ match, setLoggedIn }) => {
 
     return (
         <div className="profile-list-container">
-            <X className="profile-leave" onClick={ () => history.push('/worldview') } />
+            <div className="profile-leave-container">
+                <X className="profile-leave" onClick={ () => history.push('/worldview') } />
+            </div>
             <div className="list-intro">People at this location:</div>
-            { users && users.map(user => {
-                return (
-                    <Link className="list-link" to={ `/worldview/profile/${ user.username }` }>
-                        <div className="profile-preview" key={ user.username }>
-                            <div
-                                className="list-photo-container"
-                                style={ {
-                                    backgroundImage: `url(${ process.env.REACT_APP_API }/api/user/profile/photo/${ user.username }/${ Math.random() })`,
-                                    backgroundSize: 'contain',
-                                    backgroundRepeat: 'no-repeat',
-                                    backgroundPosition: 'center'
-                                } }
-                            >
+            <div className="list-profiles">
+                { users && users.map(user => {
+                    return (
+                        <Link key={ user.username } className="list-link" to={ `/worldview/profile/${ user.username }` }>
+                            <div className="profile-preview">
+                                <div
+                                    className="list-photo-container"
+                                    style={ {
+                                        backgroundImage: `url(${ process.env.REACT_APP_API }/api/user/profile/photo/${ user.username }/${ Math.random() })`,
+                                        backgroundSize: 'contain',
+                                        backgroundRepeat: 'no-repeat',
+                                        backgroundPosition: 'center'
+                                    } }
+                                >
+                                </div>
+                                { isAuth().name === user.name ? (
+                                    <div className="profile-list-name">{ user.name } (YOU)</div>
+                                ) : (
+                                    <div className="profile-list-name">{ user.name }</div>
+                                ) }
                             </div>
-                            { isAuth().name === user.name ? (
-                                <div className="profile-list-name">{ user.name } (YOU)</div>
-                            ) : (
-                                <div className="profile-list-name">{ user.name }</div>
-                            ) }
-                        </div>
-                    </Link>
-                )
-            }) }
+                        </Link>
+                    )
+                }) }
+            </div>
         </div>
     );
 };
